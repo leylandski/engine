@@ -16,11 +16,18 @@ import (
 )
 
 // Desktop application defaults
-const (
-	title  = "G3N Application"
-	width  = 800
-	height = 600
+var (
+	windowTitle  = "G3N Application"
+	windowWidth  = 800
+	windowHeight = 600
 )
+
+// SetWindowParams sets the window parameters.
+func SetWindowParams(title string, width, height int) {
+	windowTitle = title
+	windowWidth = width
+	windowHeight = height
+}
 
 // Application
 type Application struct {
@@ -42,7 +49,7 @@ func App() *Application {
 	}
 	a = new(Application)
 	// Initialize window
-	err := window.Init(width, height, title)
+	err := window.Init(windowWidth, windowHeight, windowTitle)
 	if err != nil {
 		panic(err)
 	}
