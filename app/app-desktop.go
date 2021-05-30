@@ -16,11 +16,18 @@ import (
 )
 
 // Desktop application defaults
-const (
+var (
 	title  = "G3N Application"
 	width  = 800
 	height = 600
 )
+
+// SetWindowParams sets the window parameters.
+func SetWindowParams(title string, width, height int) {
+	title = title
+	width = width
+	height = height
+}
 
 // Application
 type Application struct {
