@@ -49,6 +49,7 @@ const (
 	TypeLabel       = "label"
 	TypeImageLabel  = "imagelabel"
 	TypeButton      = "button"
+	TypeFixedWidthButton = "fixedwidthbutton"
 	TypeCheckBox    = "checkbox"
 	TypeRadioButton = "radiobutton"
 	TypeEdit        = "edit"
@@ -195,6 +196,7 @@ func NewBuilder() *Builder {
 		TypeLabel:       buildLabel,
 		TypeImageLabel:  buildImageLabel,
 		TypeButton:      buildButton,
+		TypeFixedWidthButton: buildFixedWidthButton,
 		TypeEdit:        buildEdit,
 		TypeCheckBox:    buildCheckBox,
 		TypeRadioButton: buildRadioButton,
