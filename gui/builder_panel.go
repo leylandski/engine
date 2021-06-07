@@ -200,6 +200,41 @@ func buildButton(b *Builder, am map[string]interface{}) (IPanel, error) {
 	return button, nil
 }
 
+// buildFixedWidthButton builds a gui object of type: FixedWidthButton
+func buildFixedWidthButton(b *Builder, am map[string]interface{}) (IPanel, error) {
+
+	// Builds button and set commont attributes
+	var text string
+	if am[AttribText] != nil {
+		text = am[AttribText].(string)
+	}
+	button := NewFixedWidthButton(text, 0, 0)
+	err := b.SetAttribs(am, button)
+	if err != nil {
+		return nil, err
+	}
+
+	// Sets optional icon(s)
+	if icon := am[AttribIcon]; icon != nil {
+		button.SetIcon(icon.(string))
+	}
+
+	// Sets optional image from file
+	// If path is not absolute join with user supplied image base path
+	if imgf := am[AttribImageFile]; imgf != nil {
+		path := imgf.(string)
+		if !filepath.IsAbs(path) {
+			path = filepath.Join(b.imgpath, path)
+		}
+		err := button.SetImage(path)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return button, nil
+}
+
 // buildEdit builds a gui object of type: "Edit"
 func buildEdit(b *Builder, am map[string]interface{}) (IPanel, error) {
 

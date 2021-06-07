@@ -44,34 +44,35 @@ const IgnoreSuffix = "_"
 
 // Panel and layout types
 const (
-	TypePanel       = "panel"
-	TypeImagePanel  = "imagepanel"
-	TypeLabel       = "label"
-	TypeImageLabel  = "imagelabel"
-	TypeButton      = "button"
-	TypeCheckBox    = "checkbox"
-	TypeRadioButton = "radiobutton"
-	TypeEdit        = "edit"
-	TypeVList       = "vlist"
-	TypeHList       = "hlist"
-	TypeDropDown    = "dropdown"
-	TypeHSlider     = "hslider"
-	TypeVSlider     = "vslider"
-	TypeHSplitter   = "hsplitter"
-	TypeVSplitter   = "vsplitter"
-	TypeSeparator   = "separator"
-	TypeTree        = "tree"
-	TypeTreeNode    = "node"
-	TypeMenuBar     = "menubar"
-	TypeMenu        = "menu"
-	TypeWindow      = "window"
-	TypeChart       = "chart"
-	TypeTable       = "table"
-	TypeTabBar      = "tabbar"
-	TypeHBoxLayout  = "hbox"
-	TypeVBoxLayout  = "vbox"
-	TypeGridLayout  = "grid"
-	TypeDockLayout  = "dock"
+	TypePanel            = "panel"
+	TypeImagePanel       = "imagepanel"
+	TypeLabel            = "label"
+	TypeImageLabel       = "imagelabel"
+	TypeButton           = "button"
+	TypeFixedWidthButton = "fixedwidthbutton"
+	TypeCheckBox         = "checkbox"
+	TypeRadioButton      = "radiobutton"
+	TypeEdit             = "edit"
+	TypeVList            = "vlist"
+	TypeHList            = "hlist"
+	TypeDropDown         = "dropdown"
+	TypeHSlider          = "hslider"
+	TypeVSlider          = "vslider"
+	TypeHSplitter        = "hsplitter"
+	TypeVSplitter        = "vsplitter"
+	TypeSeparator        = "separator"
+	TypeTree             = "tree"
+	TypeTreeNode         = "node"
+	TypeMenuBar          = "menubar"
+	TypeMenu             = "menu"
+	TypeWindow           = "window"
+	TypeChart            = "chart"
+	TypeTable            = "table"
+	TypeTabBar           = "tabbar"
+	TypeHBoxLayout       = "hbox"
+	TypeVBoxLayout       = "vbox"
+	TypeGridLayout       = "grid"
+	TypeDockLayout       = "dock"
 )
 
 // Common attribute names
@@ -190,28 +191,29 @@ func NewBuilder() *Builder {
 	b := new(Builder)
 	// Sets map of object type to builder function
 	b.builders = map[string]BuilderFunc{
-		TypePanel:       buildPanel,
-		TypeImagePanel:  buildImagePanel,
-		TypeLabel:       buildLabel,
-		TypeImageLabel:  buildImageLabel,
-		TypeButton:      buildButton,
-		TypeEdit:        buildEdit,
-		TypeCheckBox:    buildCheckBox,
-		TypeRadioButton: buildRadioButton,
-		TypeVList:       buildVList,
-		TypeHList:       buildHList,
-		TypeDropDown:    buildDropDown,
-		TypeMenu:        buildMenu,
-		TypeMenuBar:     buildMenu,
-		TypeHSlider:     buildSlider,
-		TypeVSlider:     buildSlider,
-		TypeHSplitter:   buildSplitter,
-		TypeVSplitter:   buildSplitter,
-		TypeTree:        buildTree,
-		TypeWindow:      buildWindow,
-		TypeChart:       buildChart,
-		TypeTable:       buildTable,
-		TypeTabBar:      buildTabBar,
+		TypePanel:            buildPanel,
+		TypeImagePanel:       buildImagePanel,
+		TypeLabel:            buildLabel,
+		TypeImageLabel:       buildImageLabel,
+		TypeButton:           buildButton,
+		TypeFixedWidthButton: buildFixedWidthButton,
+		TypeEdit:             buildEdit,
+		TypeCheckBox:         buildCheckBox,
+		TypeRadioButton:      buildRadioButton,
+		TypeVList:            buildVList,
+		TypeHList:            buildHList,
+		TypeDropDown:         buildDropDown,
+		TypeMenu:             buildMenu,
+		TypeMenuBar:          buildMenu,
+		TypeHSlider:          buildSlider,
+		TypeVSlider:          buildSlider,
+		TypeHSplitter:        buildSplitter,
+		TypeVSplitter:        buildSplitter,
+		TypeTree:             buildTree,
+		TypeWindow:           buildWindow,
+		TypeChart:            buildChart,
+		TypeTable:            buildTable,
+		TypeTabBar:           buildTabBar,
 	}
 	// Sets map of layout type name to layout function
 	b.layouts = map[string]IBuilderLayout{
