@@ -208,10 +208,10 @@ func (b *FixedWidthButton) recalc() {
 	}
 
 	// Centralize horizontally
-	px := (b.width - b.Label.width) / 2.0
+	px := (b.width - b.Label.width - b.Borders().Left - b.Borders().Right) / 2.0
 
 	// Set label position
-	ly := (b.height - b.Label.Height()) / 2
+	ly := (b.height - b.Label.Height() - b.Borders().Top - b.Borders().Bottom) / 2.0
 	b.Label.SetPosition(px+imgWidth+spacing, ly)
 
 	// Image/icon position
