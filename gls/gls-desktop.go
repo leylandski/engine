@@ -614,6 +614,31 @@ func (gs *GLS) CompressedTexImage2D(target uint32, level uint32, iformat uint32,
 		ptr(data))
 }
 
+func (gs *GLS) TexStorage3D(target uint32, levels uint32, iformat int32, width int32, height int32, depth int32) {
+
+	C.glTexStorage3D(C.GLenum(target),
+		C.GLint(levels),
+		C.GLint(iformat),
+		C.GLsizei(width),
+		C.GLsizei(height),
+		C.GLsizei(depth))
+}
+
+func (gs *GLS) TexSubImage3D(target uint32, level int32, xoffset int32, yoffset int32, zoffset int32, width int32, height int32, depth int32, iformat uint32, size int32, data interface{}) {
+
+	C.glTexSubImage3D(C.GLenum(target),
+		C.GLint(level),
+		C.GLint(xoffset),
+		C.GLint(yoffset),
+		C.GLint(zoffset),
+		C.GLsizei(width),
+		C.GLsizei(height),
+		C.GLsizei(depth),
+		C.GLenum(iformat),
+		C.GLenum(size),
+		ptr(data))
+}
+
 // TexParameteri sets the specified texture parameter on the specified texture.
 func (gs *GLS) TexParameteri(target uint32, pname uint32, param int32) {
 
