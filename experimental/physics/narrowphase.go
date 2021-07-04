@@ -149,8 +149,8 @@ func (n *Narrowphase) GenerateEquations(pairs []CollisionPair) ([]*equation.Cont
 		// For now these collisions are ignored
 		// TODO future: just want to check for collision (in order to dispatch events) and not create equations
 		justTest := (bodyTypeA == object.Kinematic) && (bodyTypeB == object.Static) ||
-				    (bodyTypeA == object.Static)    && (bodyTypeB == object.Kinematic) ||
-				    (bodyTypeA == object.Kinematic) && (bodyTypeB == object.Kinematic)
+			(bodyTypeA == object.Static) && (bodyTypeB == object.Kinematic) ||
+			(bodyTypeA == object.Kinematic) && (bodyTypeB == object.Kinematic)
 
 		// Get contacts
 		if !justTest {

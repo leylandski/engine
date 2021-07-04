@@ -512,8 +512,8 @@ func (b *Body) Sleeping() bool {
 // CollidableWith returns whether the body can collide with the specified body.
 func (b *Body) CollidableWith(other *Body) bool {
 
-	if (b.colFilterGroup & other.colFilterMask == 0) ||
-		(other.colFilterGroup & b.colFilterMask == 0) ||
+	if (b.colFilterGroup&other.colFilterMask == 0) ||
+		(other.colFilterGroup&b.colFilterMask == 0) ||
 		(b.bodyType == Static) && (other.bodyType == Static) {
 		return false
 	}

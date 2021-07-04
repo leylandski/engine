@@ -614,11 +614,11 @@ func (gs *GLS) CompressedTexImage2D(target uint32, level uint32, iformat uint32,
 		ptr(data))
 }
 
-func (gs *GLS) TexStorage3D(target uint32, levels uint32, iformat int32, width int32, height int32, depth int32) {
+func (gs *GLS) TexStorage3D(target uint32, levels uint32, iformat uint32, width int32, height int32, depth int32) {
 
 	C.glTexStorage3D(C.GLenum(target),
 		C.GLint(levels),
-		C.GLint(iformat),
+		C.GLuint(iformat),
 		C.GLsizei(width),
 		C.GLsizei(height),
 		C.GLsizei(depth))

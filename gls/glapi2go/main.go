@@ -19,7 +19,7 @@ const (
 
 // Command line options
 var (
-	oGLVersion = flag.String("glversion", "GL_VERSION_3_3", "OpenGL version to use")
+	oGLVersion = flag.String("glversion", "GL_VERSION_4_2", "OpenGL version to use")
 )
 
 const (
