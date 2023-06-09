@@ -412,7 +412,11 @@ func (ed *Edit) CursorInput(s string) {
 func (ed *Edit) redraw(caret bool) {
 
 	line := 0
-	ed.Label.setTextCaret(ed.text, editMarginX, int(ed.Width()), caret, line, ed.col, ed.selStart, ed.selEnd)
+	width := ed.width
+	if width <= 0 {
+		width = int(ed.Width())
+	}
+	ed.Label.setTextCaret(ed.text, editMarginX, width, caret, line, ed.col, ed.selStart, ed.selEnd)
 }
 
 // onKey receives subscribed key events
@@ -597,10 +601,21 @@ func (ed *Edit) applyStyle(s *EditStyle) {
 	//ed.Label.SetBgAlpha(s.BgAlpha)
 
 	if !ed.focus && len(ed.text) == 0 && len(ed.placeHolder) > 0 {
+		width := ed.width
+		if width <= 0 {
+			width = int(ed.Width())
+		}
 		ed.Label.SetColor4(&s.HolderColor)
-		ed.Label.setTextCaret(ed.placeHolder, editMarginX, int(ed.Width()), false, -1, ed.col, ed.selStart, ed.selEnd)
+		ed.Label.setTextCaret(ed.placeHolder, editMarginX, width, false, -1, ed.col, ed.selStart, ed.selEnd)
 	} else {
 		ed.Label.SetColor4(&s.FgColor)
 		ed.redraw(ed.focus)
+	}
+
+	if ed.layoutParams != nil {
+		parent := ed.Parent()
+		if pParent, ok := parent.(IPanel); ok {
+			pParent.GetPanel().layout.Recalc(pParent)
+		}
 	}
 }
