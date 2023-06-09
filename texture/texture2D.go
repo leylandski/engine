@@ -143,6 +143,13 @@ func (t *Texture2D) Dispose() {
 	}
 }
 
+// Disposed returns whether the texture has been disposed.
+// It should be used when implementing texture managers.
+func (t *Texture2D) Disposed() bool {
+
+	return t.gs == nil
+}
+
 // TexName returns the texture handle for the texture
 func (t *Texture2D) TexName() uint32 {
 
